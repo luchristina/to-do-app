@@ -9,7 +9,6 @@ function onReady() {
     // get the text
     let title = newToDoText.value;
 
-
     // create a new li
     let newLi = document.createElement('li');
 
@@ -31,9 +30,24 @@ function onReady() {
     // empty the input
     newToDoText.value ='';
 
-  });
-}
+    const deleteButton = document.createElement('button');
+    // delete
 
+    deleteButton.type ="button";
+    deleteButton.innerHTML = "delete";
+    newLi.appendChild(deleteButton);
+
+});
+
+deleteButton.setAttribute('type', 'button');
+deleteButton.setAttribute('value', 'remove');
+deleteButton.setAttribute('id', 'removeButton');
+
+deleteButton.addEventListener('click', () => {
+  toDoList.removeChild(newLi);
+});
+
+}
 window.onload = function() {
   onReady();
 };
