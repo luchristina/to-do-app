@@ -30,24 +30,36 @@ function onReady() {
     // empty the input
     newToDoText.value ='';
 
-    const deleteButton = document.createElement('button');
-    // delete
+    // create delete button
+    let deleteButton = document.createElement('input');
 
-    deleteButton.type ="button";
-    deleteButton.innerHTML = "delete";
+    // create onclick for delete
+    let onClick = document.createAttribute("onclick");
+    onClick.value = "deleteButton(this)";
+
+    // create type for deleteButton
+    let type = document.createAttribute("type");
+    type.value = "button";
+
+    // create text value
+    let inputValue = document.createAttribute("value");
+    inputValue.value = "Delete"; set attributes
+
+    // delete set attributes
+    deleteButton.setAttributeNode(onClick);
+    deleteButton.setAttributeNode(type);
+    deleteButton.setAttributeNode(inputValue);
     newLi.appendChild(deleteButton);
 
 });
-
-deleteButton.setAttribute('type', 'button');
-deleteButton.setAttribute('value', 'remove');
-deleteButton.setAttribute('id', 'removeButton');
-
-deleteButton.addEventListener('click', () => {
-  toDoList.removeChild(newLi);
-});
-
 }
+
 window.onload = function() {
   onReady();
 };
+
+// delete button
+function deleteButton(btn) {
+  var row = btn.parentNode;
+  row.parentNode.removeChild(row);
+}
