@@ -45,10 +45,9 @@ function onReady() {
       deleteButton.addEventListener('click', event => {
         event.preventDefault();
         newLi.parentNode.removeChild(newLi);
-        toDos = toDos.filter(id => toDos.id);
+          toDos = toDos.filter(toDo => toDo.id !== undefined);
       });
     });
-
   }
 
   addToDoForm.addEventListener('submit', event => {
