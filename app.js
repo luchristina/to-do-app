@@ -45,8 +45,7 @@ function onReady() {
       deleteButton.addEventListener('click', event => {
         event.preventDefault();
         newLi.parentNode.removeChild(newLi);
-        const removed = toDos.filter(id => toDos.id);
-          remove(toDos.id);
+        toDos = toDos.filter(id => toDos.id);
       });
     });
 
